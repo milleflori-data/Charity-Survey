@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Survey & Chunky Milky Jade Buttons</title>
+    <style>
+        :root {
+            --milky-jade: #A8C8A8;
+            --milky-jade-light: #B8D4B8;
+            --milky-jade-dark: #8FB88F;
+            --milky-jade-darker: #7BA47B;
+            --deep-jade: #7BA47B;
+            --sage-cream: #E8F1E8;
+            --charcoal: #2C3E2C;
+            --warm-cream: #F7F9F7;
+            --accent-gold: #D4AF37;
+            --oatmeal-base: #F5F2E8;
+            --oatmeal-light: #F8F6F0;
+            --oatmeal-dark: #F0ECE0;
+            --stone-highlight: rgba(255, 255, 255, 0.6);
+            --stone-shadow: rgba(44, 62, 44, 0.3);
+        }
+
+        body {
+            font-family: 'Signal', 'Optima', sans-serif;
+            background: var(--oatmeal-base);
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--oatmeal-light) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, var(--oatmeal-dark) 1px, transparent 1px),
+                linear-gradient(45deg, transparent 48%, rgba(245, 242, 232, 0.1) 49%, rgba(245, 242, 232, 0.2) 50%, rgba(245, 242, 232, 0.1) 51%, transparent 52%);
+            background-size: 8px 8px, 12px 12px, 4px 4px;
+            background-repeat: no-repeat;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--oatmeal-light);
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 
+                0 8px 32px rgba(123, 164, 123, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(240, 236, 224, 0.4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-family: 'Matterhorn', serif;
+            font-size: 3.5rem;
+            color: var(--deep-jade);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-family: 'Signal', sans-serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-family: 'Matterhorn', serif;
+            font-size: 2.5rem;
+            color: var(--deep-jade);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .button-demo {
+            background: var(--oatmeal-light);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(240, 236, 224, 0.5);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .demo-label {
+            font-family: 'Signal', sans-serif;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-stone {
+            font-family: 'Signal', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            user-select: none;
+            outline: none;
+            overflow: hidden;
+        }
+
+        .btn-stone::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(145deg, var(--stone-highlight), transparent 50%, var(--stone-shadow));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-stone:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--milky-jade-light), var(--milky-jade), var(--milky-jade-dark));
+            color: var(--warm-cream);
+            padding: 18px 36px;
+            font-size: 1.125rem;
+            border-radius: 16px;
+            box-shadow: 
+                0 8px 16px rgba(123, 164, 123, 0.3),
+                0 4px 8px rgba(123, 164, 123, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(44, 62, 44, 0.1);
+            text-shadow: 0 1px 2px rgba(44, 62, 44, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 12px 24px rgba(123, 164, 123, 0.4),
+                0 6px 12px rgba(123, 164, 123, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(44, 62, 44, 0.15);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 4px 8px rgba(123, 164, 123, 0.3),
+                0 2px 4px rgba(123, 164, 123, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(44, 62, 44, 0.2);
+        }
+
+        .survey-section {
+            margin-top: 40px;
+            background: var(--oatmeal-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 
+                0 8px 16px rgba(123, 164, 123, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .survey-question {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .survey-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title Section -->
+        <div class="header">
+            <h1 class="title">Chunky Milky Jade Buttons</h1>
+            <p class="subtitle">Interactive demonstration of stylish button designs</p>
+        </div>
+
+        <!-- Button Showcase -->
+        <div class="section-title">Button Showcase</div>
+        <div class="button-grid">
+            <div class="button-demo">
+                <div class="demo-label">Primary Button</div>
+                <button class="btn-stone btn-primary">Click Me</button>
+            </div>
+            <div class="button-demo">
+                <div class="demo-label">Small Button</div>
+                <button class="btn-stone btn-small">Click Me</button>
+            </div>
+            <div class="button-demo">
+                <div class="demo-label">Hero Button</div>
+                <button class="btn-stone btn-hero">Click Me</button>
+            </div>
+        </div>
+
+        <!-- Charity Survey Section -->
+        <div class="survey-section">
+            <h2 class="section-title">Charity Survey</h2>
+            <div class="survey-question">Do you want to participate in our charity survey?</div>
+            <div class="survey-buttons">
+                <button class="btn-stone btn-primary" onclick="startSurvey()">Yes</button>
+                <button class="btn-stone btn-primary" onclick="endSurvey()">No</button>
+            </div>
+
+            <div id="survey-container" style="display: none;">
+                <div class="survey-question">Do you think this charity is making a positive impact?</div>
+                <div class="survey-buttons">
+                    <button class="btn-stone btn-primary" onclick="submitAnswer('Yes')">Yes</button>
+                    <button class="btn-stone btn-primary" onclick="submitAnswer('No')">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startSurvey() {
+            document.querySelector('#survey-container').style.display = 'block';
+        }
+
+        function endSurvey() {
+            alert('Thank you for your time!');
+        }
+
+        function submitAnswer(answer) {
+            alert('You answered: ' + answer);
+            endSurvey();
+        }
+    </script>
+</body>
+</html>
